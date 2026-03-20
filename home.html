@@ -6,58 +6,181 @@
     <title>All About Carmel Valley</title>
 </head>
 <style>
-body {
-  background-image: url('images/f6455524-0e27-4fe6-969f-433db56d3e76.webp');
-  background-repeat: no-repeat;
 
-  background-size: cover;
-  height: 10vw;
-  background-position: center;
+  td {
+        width: 300px;
+        border: 0.5px solid black;
+    }
+    th {
+        width: 300px;
+        border: 0.5px solid black;
+    }
+    table {
+        border: 0.5px solid black;
+    }
+body {
   /* Ensure no default margin or padding on the body */
   margin: 0;
   padding: 0;
   /* Ensure the body covers the entire viewport height */
   width: 100vw; /* Use 100vw, but be mindful of scrollbars */
-  overflow: hidden; /* Hide scrollbars if unwanted */
+  overflow-x: hidden; /* Hide scrollbars if unwanted */
 }
 
-img {
-  filter: blur(5px);
+#pop-table {
+  margin: 10px;
 }
-
-h1 {
+#header h1 {
     font-family:'Brush Script MT', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    font-size: 200px;
+    margin-top: 0vw;
+    font-size: 150px;
+    position: absolute;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
-ul {
+#nav-bar ul {
   display: flex;
   /* flex-direction: row; is the default and optional */
   list-style-type: none; /* Optional: removes bullet points */
   padding: 0; /* Optional: removes default padding */
   margin: 0px;
+  font-size: 20px;
 }
 
-.nav-bar {
-    background-color: aliceblue;
+#nav-bar {
+    background-color: black;
     width: 100%;
-    height: 50px;
+    height: 45px;
 }
 
-li {
+#nav-bar li {
   font-family: 'Arial Narrow', Arial, sans-serif;
-  background-color: aliceblue;
+  background-color: black;
+  color: white;
   padding: 10px;
+  height: 45px;
+}
+
+#nav-bar a {
+  color: white;
+}
+
+#header {
+  position: relative;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 </style>
 <body>
 <div id = "nav-bar">
     <ul>
-        <li>Home</li>
-        <li>History</li>
+        <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+        <li><a href = "history.html">History</a></li>
     </ul>
 </div>
-<center><h1>Carmel Valley</h1></center>
+<div id = "header">
+<img src = "images/f6455524-0e27-4fe6-969f-433db56d3e76.webp" alt = "Aerial image of Carmel Valley, San Diego" style = "width: 100vw; height: 400px; position: absolute; object-fit: cover;">
+<h1>Carmel Valley</h1>
+</div>
+<h1>Neighborhoods of Carmel Valley</h1>
+<ol>
+  <li>Alta Del Mar</li>
+  <li>Amador</li>
+  <li>Arabella</li>
+  <li>Bayshore</li>
+  <li>Belmont &amp; Steeplechase</li>
+  <li>Bordeaux</li>
+  <li>Bougainvillea</li>
+  <li>Breakers</li>
+  <li>Bridle Ridge</li>
+  <li>Cantamar</li>
+  <li>Carmel Park</li>
+  <li>Collins Ranch</li>
+  <li>Fairbanks Highlands</li>
+  <li>Lexington</li>
+  <li>Maricel</li>
+  <li>Pacific Highlands Ranch</li>
+  <li>Palacio Del Mar</li>
+  <li>Private Collection</li>
+  <li>Promontory</li>
+  <li>Rancho Pacifica</li>
+  <li>Santa Barbara</li>
+  <li>Sonoma</li>
+  <li>Torrey Hills</li>
+</ol>
 
+<ul style = "list-style-type:lower-greek;">
+  <li>Carmel Valley is in the zip code 92130</li>
+  <li>As you can see, it has been slowly gaining populating over time</li>
+</ul>
+
+
+
+
+<div id = "pop-table">
+<h1>Population Over Time</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Population (92130)</th>
+  </tr>
+  <tr>
+    <td>2011</td>
+    <td>47527</td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td>47599</td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>48721</td>
+  </tr>
+  <tr>
+    <td>2014</td>
+    <td>50280</td>
+  </tr>
+  <tr>
+    <td>2015</td>
+    <td>51262</td>
+  </tr>
+  <tr>
+    <td>2016</td>
+    <td>51757</td>
+  </tr>
+  <tr>
+    <td>2017</td>
+    <td>54495</td>
+  </tr>
+  <tr>
+    <td>2018</td>
+    <td>55316</td>
+  </tr>
+  <tr>
+    <td>2019</td>
+    <td>56134</td>
+  </tr>
+  <tr>
+    <td>2020</td>
+    <td>56741</td>
+  </tr>
+  <tr>
+    <td>2021</td>
+    <td>57197</td>
+  </tr>
+  <tr>
+    <td>2022</td>
+    <td>57363</td>
+  </tr>
+  <tr>
+    <td>2023</td>
+    <td>59768</td>
+  </tr>
+</table>
+</div>
 </body>
 </html>
