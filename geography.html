@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     td {
+        width: 300px;
+        border: 0.5px solid black;
+    }
+    th {
+        width: 300px;
+        border: 0.5px solid black;
+    }
+    table {
+        border: 0.5px solid black;
+    }
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+    .wide {
+        width: 80.5vw;
+    }
+    h2, h1, p {
+        padding: 10px;
+    }
+    .side-by-side {
+        display: flex;
+    }
+    #nav-bar ul {
+  display: flex;
+  /* flex-direction: row; is the default and optional */
+  list-style-type: none; /* Optional: removes bullet points */
+  padding: 0; /* Optional: removes default padding */
+  margin: 0px;
+  font-size: 20px;
+}
+
+#nav-bar {
+    background-color: black;
+    width: 100%;
+    height: 45px;
+}
+
+
+.content {
+    background-color: rgb(255, 244, 232);
+    width: 20vw;
+}
+
+.third {
+    width: calc(33.33%);
+    height: 800px;
+    object-fit: cover;
+}
+
+.wide {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wide-pic {
+    width: 79.5vw;
+    object-fit: cover;
+}
+
+#nav-bar li {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+
+#nav-bar a {
+  color: white;
+}
+
+#header {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+}
+
+.whitespace {
+    height: 20px;
+    background-color: blanchedalmond;
+}
+
+h4, h5 {
+    margin: 10px;
+}
+
+h5 {
+    font-style: italic;
+    font-weight: 100;
+}
+
+#pop-table {
+    margin: 10px;
+}
+</style>
+<body>
+    <div id = "nav-bar">
+        <ul>
+            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+            <li><a href = "history.html">History</a></li>
+        </ul>
+    </div>
+    <div id = "header">
+        <h1>Geography</h1>
+        <div>
+        
+        <ol>
+            <li>Neighborhoods</li>
+            <li>Geographic Location and Area</li>
+            <li>Statistics</li>
+        </ol>
+        </div>
+    </div>
+    <div class = "whitespace"></div>
+    <div class = "side-by-side">
+        <div class = "content">
+            <center>
+            <h3>Neighborhoods</h3>
+            </center>
+            <h4>Pacific Highlands Ranch</h4>
+            <h5>New construction, walkable Village center. Modern, active families.</h5>
+            <h4>Torrey Hills</h4>
+            <h5>Gated, quiet, close to tech hubs. Commuter convenience, tranquility.</h5>
+            <h4>Carmel Country Highlands</h4> 
+            <h5>Gated, multi-bedroom homes. Large families, school proximity. </h5>
+            <h4>Del Mar Mesa</h4>
+            <h5>Expansive lots, nature-intertwined. Privacy, safety, rural-suburban mix. </h5>
+            <h4>Bayshore</h4>
+            <h5>Modern designs, pool amenities. Range of budgets and preferences. </h5>
+        </div>
+        <img src = "images/Carmel_Valley_San_Diego_2.jpg" class = "wide-pic" height = "500px">
+    </div>
+    <div class = "whitespace"></div>
+    <div class = "side-by-side">
+        <div class = "content">
+            <center>
+            <h3>Statistics</h3>
+            </center>
+            <h4>Population Density</h4>
+            <h5>Carmel Valley has a population density of about 6,800 people per mi<sup>2</sup>, or about half the density of downtown. However, census tracts in Carmel Valley have up to 9,000 people per mi<sup>2</sup>.</h5>
+            <h4>Population Over Time</h4>
+            <div id = "pop-table">
+                
+                
+                <table>
+                  <tr>
+                    <th>Year</th>
+                    <th>Population (92130)</th>
+                  </tr>
+                  <tr>
+                    <td>2011</td>
+                    <td>47527</td>
+                  </tr>
+                  <tr>
+                    <td>2012</td>
+                    <td>47599</td>
+                  </tr>
+                  <tr>
+                    <td>2013</td>
+                    <td>48721</td>
+                  </tr>
+                  <tr>
+                    <td>2014</td>
+                    <td>50280</td>
+                  </tr>
+                  <tr>
+                    <td>2015</td>
+                    <td>51262</td>
+                  </tr>
+                  <tr>
+                    <td>2016</td>
+                    <td>51757</td>
+                  </tr>
+                  <tr>
+                    <td>2017</td>
+                    <td>54495</td>
+                  </tr>
+                  <tr>
+                    <td>2018</td>
+                    <td>55316</td>
+                  </tr>
+                  <tr>
+                    <td>2019</td>
+                    <td>56134</td>
+                  </tr>
+                  <tr>
+                    <td>2020</td>
+                    <td>56741</td>
+                  </tr>
+                  <tr>
+                    <td>2021</td>
+                    <td>57197</td>
+                  </tr>
+                  <tr>
+                    <td>2022</td>
+                    <td>57363</td>
+                  </tr>
+                  <tr>
+                    <td>2023</td>
+                    <td>59768</td>
+                  </tr>
+                </table>
+                </div>
+        </div>
+        <div class = "wide">
+            <img src = "images/Capture_7.PNG" class = "third">
+            <img src = "images/Capture_4.PNG" class = "third">
+            <img src = "images/Capture_5.PNG" class = "third">
+        </div>
+    </div>
+</body>
+</html>

@@ -37,6 +37,21 @@
 
 .content {
     background-color: rgb(255, 244, 232);
+    width: 20vw;
+}
+
+.third {
+    width: calc(33.33%);
+    height: 800px;
+}
+
+.wide {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wide-pic {
+    width: 79.5vw;
 }
 
 #nav-bar li {
@@ -46,6 +61,7 @@
   padding: 10px;
 }
 
+
 #nav-bar a {
   color: white;
 }
@@ -54,6 +70,20 @@
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center;
+}
+
+.whitespace {
+    height: 20px;
+    background-color: blanchedalmond;
+}
+
+h4, h5 {
+    margin: 10px;
+}
+
+h5 {
+    font-style: italic;
+    font-weight: 100;
 }
 </style>
 <body>
@@ -75,26 +105,35 @@
         </ol>
         </div>
     </div>
-    
+    <div class = "whitespace"></div>
     <div class = "side-by-side">
         <div class = "content">
-        <center>
-        <h2>SR-56 Extension</h2>
-        </center>
-        <p>SR-56 terminated after the Carmel Country Rd. exit and become Carmel Valley Road, which would continue to the east. Del Mar heights would terminate right before Carmel Valley Road.</p>
+            <center>
+            <h3>SR-56 Extension</h3>
+            </center>
+            <p>SR-56 terminated after the Carmel Country Rd. exit and become Carmel Valley Road, which would continue to the east. Del Mar heights would terminate right before Carmel Valley Road.</p>
         </div>
-        <img src = "images/Capture_1.PNG" class = "wide">
+        <img src = "images/Capture_1.PNG" class = "wide-pic">
     </div>
+    <div class = "whitespace"></div>
     <div class = "side-by-side">
         <div class = "content">
-        <center>
-        <h2>Del Mar Heights to Carmel Valley Road Connection</h2>
-        </center>
-        <p>With the completion of SR-56, Carmel Valley Road was shifted to cross the highway, and the previous alignment was designated Old Carmel Valley Road. Del Mar Heights was extended to meet both of them.</p>
+            <center>
+            <h3>Del Mar Heights to Carmel Valley Road Connection</h3>
+            </center>
+            <p>With the completion of SR-56, Carmel Valley Road was shifted to cross the highway, and the previous alignment was designated Old Carmel Valley Road. Del Mar Heights was extended to meet both of them.</p>
+            <h4>2003</h4>
+            <h5>SR-56 is routed into Carmel Valley Road, which doesn't connect to Del Mar Heights. </h5>
+            <h4>2004-5</h4>
+            <h5>The new Carmel Valley Road exit is constructed and is extended north along the original alignment and widened. </h5>
+            <h4>2006</h4>
+            <h5>The Del Mar Heights and Carmel Valley Road intersection is there as we know and love (mostly because of Trader Joe's) today.</h5>
         </div>
-        <img src = "images/Capture_3.PNG" class = "third">
-        <img src = "images/Capture_4.PNG" class = "third">
-        <img src = "images/Capture_5.PNG" class = "third">
+        <div class = "wide">
+            <img src = "images/Capture_3.PNG" class = "third">
+            <img src = "images/Capture_4.PNG" class = "third">
+            <img src = "images/Capture_5.PNG" class = "third">
+        </div>
     </div>
 </body>
 </html>
