@@ -1,1 +1,36 @@
 /* Add Global styles here */
+#nav-bar ul {
+  display: flex;
+  /* flex-direction: row; is the default and optional */
+  list-style-type: none; /* Optional: removes bullet points */
+  padding: 0; /* Optional: removes default padding */
+  margin: 0px;
+  font-size: 20px;
+
+}
+
+#nav-bar {
+    background-color: black;
+    width: 100%;
+    height: 45px;
+}
+
+#nav-bar li {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
+    color: white;
+    padding: 10px;
+
+}
+
+#nav-bar a {
+    text-decoration: none;
+}
+
+#nav-bar li:hover {
+  background-color: rgb(49, 49, 49);
+}
+
+#nav-bar a {
+  color: white;
+}

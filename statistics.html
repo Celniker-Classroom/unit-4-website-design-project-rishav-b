@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "styles.css">
+    <script type="module" src="https://js.arcgis.com/5.0/"></script>
+
+    <style>
+      #viewDiv {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+    <script type="module">
+      const [Map, FeatureLayer, SceneView, ElevationLayer, LabelClass, Basemap, TileLayer] =
+        await $arcgis.import([
+          "@arcgis/core/Map.js",
+          "@arcgis/core/layers/FeatureLayer.js",
+          "@arcgis/core/views/SceneView.js",
+          "@arcgis/core/layers/ElevationLayer.js",
+          "@arcgis/core/layers/support/LabelClass.js",
+          "@arcgis/core/Basemap.js",
+          "@arcgis/core/layers/TileLayer.js",
+        ]);
+
+
+      const map = new Map({
+        ground: {
+          layers: [
+            new ElevationLayer({
+              url: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer",
+            }),
+          ],
+        },
+        basemap: "hybrid",
+    ground: "world-elevation" 
+      });
+
+
+      const view = new SceneView({
+        container: "viewDiv",
+        map: map,
+        camera: {
+          position: [-117.21660634870682, 32.94605933493627, 1574.65501],
+          heading: 0.51,
+          tilt: 45,
+        },
+      });
+
+
+      const trails = new FeatureLayer({
+        url: "https://services1.arcgis.com/SIYkiqjmENweC50g/arcgis/rest/services/DPR_TRAIL/FeatureServer",
+        elevationInfo: {
+          mode: "relative-to-ground",
+          offset: 3,
+        },
+
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "line-3d",
+            symbolLayers: [
+              {
+                type: "line",
+                material: { color: "#FF5500" },
+                size: "2px",
+              },
+            ],
+          },
+        },
+      });
+
+      const trailHeads = new FeatureLayer({
+        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/Trailheads/FeatureServer#:~:text=Service%20Description:,Operations:%20Query%20ConvertFormat%20Get%20Estimates",
+        elevationInfo: {
+          mode: "relative-to-ground",
+        },
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "point-3d",
+            symbolLayers: [
+              {
+                type: "icon",
+                resource: { primitive: "circle" },
+                material: { color: "#FF5500" },
+                outline: { color: "#FFFFFF", size: 1 },
+                size: "10px",
+              },
+            ],
+            verticalOffset: {
+              screenLength: 20,
+              maxWorldLength: 200,
+              minWorldLength: 20,
+            },
+            callout: {
+              type: "line",
+              size: 1,
+              color: "#FFFFFF",
+            },
+          },
+        },
+        labelingInfo: [
+          new LabelClass({
+            labelExpressionInfo: { expression: "$feature.TRL_NAME" },
+            symbol: {
+              type: "label-3d",
+              symbolLayers: [
+                {
+                  type: "text",
+                  material: {
+                    color: "#FFFFFF",
+                  },
+                  halo: {
+                    size: 1,
+                    color: [0, 0, 0, 0.5],
+                  },
+                  font: {
+                    size: 11,
+                    family: "sans-serif",
+                  },
+                },
+              ],
+            },
+          }),
+        ],
+      });
+
+      map.addMany([trails, trailHeads]);
+    </script>
+  </head>
+<style>
+     td {
+        width: 300px;
+        border: 0.5px solid black;
+        font-size: 12px;
+    }
+    th {
+        width: 300px;
+        border: 0.5px solid black;
+    }
+    table {
+        border: 0.5px solid black;
+    }
+    body {
+        padding: 0px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0px;
+    }
+    .wide {
+        width: 80.5vw;
+    }
+    h2, h1, p {
+        padding: 10px;
+    }
+    .side-by-side {
+        display: flex;
+    }
+
+.content {
+    background-color: rgb(255, 244, 232);
+    width: 20vw;
+}
+
+.content img {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.third {
+    width: calc(33.33%);
+    height: 800px;
+    object-fit: cover;
+}
+
+.wide {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wide-pic {
+    width: 79.5vw;
+    object-fit: cover;
+}
+
+#header {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+}
+
+.whitespace {
+    height: 20px;
+    background-color: blanchedalmond;
+}
+
+h4, h5 {
+    margin: 10px;
+}
+
+h5 {
+    font-style: italic;
+    font-weight: 100;
+}
+
+#pop-table {
+    margin: 10px;
+}
+.on-top {
+  flex-direction: column;
+}
+#viewDiv {
+  width: 80vw;
+  overflow-x: hidden;
+}
+</style>
+<body>
+    <div id = "nav-bar">
+        <ul>
+            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+            <li><a href = "history.html">History</a></li>
+            <li><a href = "geography.html">Geography & Recreation</a></li>
+            <li><a href = "history.html">People & Neighborhoods</a></li>
+        </ul>
+    </div>
+    <div id = "header">
+        <h1>People & Neighborhoods</h1>
+        <div>
+        
+        <ol>
+            <li>Neighborhoods</li>
+            <li>Schools</li>
+            <li>Population Statistics</li>
+        </ol>
+        </div>
+    </div>
+    <div class = "whitespace"></div>
+    <div class = "side-by-side">
+        <div class = "content">
+            <center>
+            <h3>Statistics</h3>
+            </center>
+            <h4>Population Density</h4>
+            <h5>Carmel Valley has a population density of about 6,800 people per mi<sup>2</sup>, or about half the density of downtown. However, census tracts in Carmel Valley have up to 9,000 people per mi<sup>2</sup>.</h5>
+            
+            <h4>Population Over Time</h4>
+            <div id = "pop-table">
+              <table>
+                <tr>
+                  <th>Year</th>
+                  <th>Population (92130)</th>
+                </tr>
+                <tr>
+                  <td>2011</td>
+                  <td>47527</td>
+                </tr>
+                <tr>
+                  <td>2012</td>
+                  <td>47599</td>
+                </tr>
+                <tr>
+                  <td>2013</td>
+                  <td>48721</td>
+                </tr>
+                <tr>
+                  <td>2014</td>
+                  <td>50280</td>
+                </tr>
+                <tr>
+                  <td>2015</td>
+                  <td>51262</td>
+                </tr>
+                <tr>
+                  <td>2016</td>
+                  <td>51757</td>
+                </tr>
+                <tr>
+                  <td>2017</td>
+                  <td>54495</td>
+                </tr>
+                <tr>
+                  <td>2018</td>
+                  <td>55316</td>
+                </tr>
+                <tr>
+                  <td>2019</td>
+                  <td>56134</td>
+                </tr>
+                <tr>
+                  <td>2020</td>
+                  <td>56741</td>
+                </tr>
+                <tr>
+                  <td>2021</td>
+                  <td>57197</td>
+                </tr>
+                <tr>
+                  <td>2022</td>
+                  <td>57363</td>
+                </tr>
+                <tr>
+                  <td>2023</td>
+                  <td>59768</td>
+                </tr>
+              </table>
+            </div>
+        </div>
+        <img src = "images/Carmel_Valley_San_Diego_2.jpg" class = "wide-pic" height = "500px">
+
+    </div>
+    <div class = "whitespace"></div>
+    <div class = "side-by-side">
+      <div class = "content">
+          <center>
+          <h3>Neighborhoods</h3>
+          </center>
+          <h4>Pacific Highlands Ranch</h4>
+          <h5>New construction, walkable Village center. Modern, active families.</h5>
+          <h4>Torrey Hills</h4>
+          <h5>Gated, quiet, close to tech hubs. Commuter convenience, tranquility.</h5>
+          <h4>Carmel Country Highlands</h4> 
+          <h5>Gated, multi-bedroom homes. Large families, school proximity. </h5>
+          <h4>Del Mar Mesa</h4>
+          <h5>Expansive lots, nature-intertwined. Privacy, safety, rural-suburban mix. </h5>
+          <h4>Bayshore</h4>
+          <h5>Modern designs, pool amenities. Range of budgets and preferences. </h5>
+      </div>
+        
+        <div class = "wide">
+            <img src = "images/The-Village_Exterior-26-1024x683.jpg" class = "third">
+            <img src = "images/6581407a9fb59c26c9d4782198a21f03l-m461001305rd-w960_h720.jpg" class = "third">
+            <img src = "images/LG-FIN-DRONE2.avif" class = "third">
+            
+        </div>
+    </div>
+</body>
+</html>
