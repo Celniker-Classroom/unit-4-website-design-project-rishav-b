@@ -133,6 +133,7 @@
     </script>
   </head>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
      td {
         width: 300px;
         border: 0.5px solid black;
@@ -147,7 +148,7 @@
     }
     body {
         padding: 0px;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Google Sans', Times, serif;
         margin: 0px;
     }
     .wide {
@@ -216,6 +217,30 @@ h5 {
   width: 80vw;
   overflow-x: hidden;
 }
+
+.stars img {
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.stars {
+  margin: 10px;
+}
+
+.stars p {
+  display: inline;
+  margin: 0px;
+  position: relative;
+}
+
+.star_container {
+  position: relative;
+  display: inline-block;
+}
+
+
 </style>
 <body>
     <div id = "nav-bar">
@@ -243,7 +268,44 @@ h5 {
             <center>
               <h3>Hiking</h3>
             </center>
-            You can see the trails on the right.
+            Carmel Valley offers a diverse range of hiking experiences, from easy family walks through riparian forests to moderate climbs with sweeping ocean views. The area is defined by its extensive canyon systems and protected preserves. 
+            Top Hiking Destinations in Carmel Valley
+            <img class = "hiking-image">
+            <h4>Carmel Mountain Preserve</h4>
+            <div class = "stars" id = "carmel_mountain"></div>
+            <p>A local favorite for its accessibility and distant ocean views.
+            Carmel Mountain Preserve Big Loop: A 5.4-mile moderate hike with steep sections and gorgeous views of the eastern mountains and western coast.
+            Difficulty: Easy to Moderate options available.
+            Highlights: Chaparral landscapes, native plants, and well-maintained dirt and paved paths.</p>
+            <div class = "stars" id = "los_penasquitos"></div>
+            <div class = "stars" id = "gonzales_canyon"></div>
+
+            (70)
+            Park
+            Open11600 Clews Ranch Rd
+            
+            Image of Los Peñasquitos Canyon Preserve
+            Los Peñasquitos Canyon Preserve
+            4.7
+            (629)
+            Nature preserve
+            12020 Black Mountain Rd
+            Located just south and east of Carmel Valley, this preserve features a peaceful atmosphere and picturesque scenery.
+            Los Peñasquitos Creek Waterfall: A 3.7-mile easy trail that is mostly flat and leads to a popular waterfall. It is highly recommended for families and children.
+            Peñasquitos Falls Loop: A 2.8-mile moderate loop starting from the Carmel Valley side with a descent towards the falls and an uphill return.
+            Image of Gonzales Canyon Open Space Park
+            Gonzales Canyon Open Space Park
+            4.4
+            (5)
+            Hiking area
+            OpenLansdale Dr
+            Home to various trails including the Carmel Valley Canyon Trail.
+            Carmel Valley Canyon Trail: A 6.5-mile moderate trail that is mostly exposed and passes through scenic canyon terrain.
+            Shaw Valley Trail: A 1.1-mile loop (from local access points) described as feeling like the wilderness despite being in suburban San Diego.
+            Black Mountain Open Space Park
+            Located nearby, offering more challenging terrain and panoramic vistas.
+            Miner’s Ridge Short Loop: A 2.7-mile moderate trail with steep, rocky sections that reward hikers with views of Rancho Bernardo.
+            Nighthawk Trail to Black Mountain Summit: A 3.9-mile moderate climb leading to the summit with extensive views of the surrounding area
         </div>
         <div id="viewDiv"></div>
     </div>
@@ -272,5 +334,6 @@ h5 {
             
         </div>
     </div>
+    <script src = "script.js"></script>
 </body>
 </html>
