@@ -1,4 +1,80 @@
 /* Add Global styles here */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+body {
+  padding: 0px;
+  font-family: 'Google Sans', Times, serif;
+  margin: 0px;
+}
+
+
+h2, h1, p {
+  padding: 10px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Amarante";
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h4, h5 {
+  margin: 10px;
+}
+  
+h5 {
+  font-style: italic;
+  font-weight: 100;
+}
+
+.side-by-side {
+  display: flex;
+}
+
+.content img {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.third {
+  width: calc(33.33%);
+  height: 800px;
+  object-fit: cover;
+}
+
+.wide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wide-pic {
+  width: 79.5vw;
+  object-fit: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+}
+
+.header-dark {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  background-color: rgb(2, 2, 1);
+  color: white;
+}
+
 #nav-bar ul {
   display: flex;
   /* flex-direction: row; is the default and optional */
