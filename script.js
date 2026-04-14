@@ -27,8 +27,4 @@ for (const [key, value] of starData) {
         }
     }
 
-    const textRating = document.createElement('p');
-    textRating.innerText = "("+value+")";
-    starDiv.appendChild(textRating);
-
 }
