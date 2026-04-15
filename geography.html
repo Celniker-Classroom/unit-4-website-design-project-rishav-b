@@ -146,6 +146,7 @@
     overflow-x: hidden;
   }
 
+
   .stars img {
     width: 20px;
     height: 20px;
@@ -155,10 +156,14 @@
 
   .stars {
     margin: 10px;
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   .stars-dark {
     margin: 10px;
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   .whitespace {
@@ -227,6 +232,11 @@
     border: none;
   }
 
+  .map-dark {
+    background-color: rgb(95, 79, 60);
+    color:white;
+  }
+
 
 </style>
 <body>
@@ -236,7 +246,7 @@
             <li><a href = "history.html">History</a></li>
             <li><a href = "geography.html">Geography & Recreation</a></li>
             <li><a href = "history.html">People & Neighborhoods</a></li>
-            <li><a id = "dark"><img alt = "Dark mode" src = "images/dark_mode_20dp_1F1F1F_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+            <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
         </ul>
     </div>
     <div class = "header">
@@ -280,7 +290,9 @@
               Black Mountain Open Space Park is ocated nearby, offering more challenging terrain and panoramic vistas.</p>
 
           </div>
-        <div id="viewDiv"></div>
+          <div class = "map">
+            <div id="viewDiv"></div>
+          </div>
     </div>
     <div class = "whitespace"></div>
     <div class = "side-by-side">
