@@ -46,6 +46,19 @@
         background-color: rgb(205, 231, 255);
     }
 
+    #timelapse-image {
+        width: 80vw;
+    }
+
+    #timelapse-text {
+        position: absolute;
+        font-family: "Amarante";
+        background-color:rgb(205, 231, 255);
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 0 0 20px 0;
+    }
+
 h4, h5 {
     margin: 10px;
 }
@@ -84,7 +97,10 @@ h5 {
             </center>
             <p>SR-56 terminated after the Carmel Country Rd. exit and become Carmel Valley Road, which would continue to the east. Del Mar heights would terminate right before Carmel Valley Road.</p>
         </div>
-        <img src = "images/Capture_1.PNG" class = "wide-pic">
+        <div id = "timelapse">
+            <div id = "timelapse-text"></div>
+            <img id = "timelapse-image">
+        </div>
     </div>
     <div class = "whitespace"></div>
     <div class = "side-by-side">
@@ -107,5 +123,7 @@ h5 {
             <img src = "images/Capture_5.PNG" class = "third">
         </div>
     </div>
+    <script src = "timelapse.js"></script>
 </body>
+
 </html>

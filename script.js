@@ -28,3 +28,7 @@ for (const [key, value] of starData) {
     }
 
 }
+
+
+
+
