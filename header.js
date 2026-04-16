@@ -1,9 +1,10 @@
-
-window.addEventListener('scroll', () => {
-  const header = document.getElementById("nav-bar");
-  if (window.scrollY > 10) {
-    header.classList.add('is-stuck');
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("nav-bar").style.top = "0";
   } else {
-    header.classList.remove('is-stuck');
+    document.getElementById("nav-bar").style.top = "-50px";
   }
-});
+  prevScrollpos = currentScrollPos;
+}
