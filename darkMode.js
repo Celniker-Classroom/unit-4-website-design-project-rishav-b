@@ -19,7 +19,8 @@ function dark() {
         const baseDiv = document.getElementById(baseId);
         const colorPairs = [
             [ "rgb(26, 22, 17)", "rgb(207, 174, 133)" ],
-            [ "rgb(110, 157, 201)", "rgb(4, 23, 39)" ]
+            [ "rgb(110, 157, 201)", "rgb(4, 23, 39)" ],
+            [ "rgb(209, 155, 234)", "rgb(45, 14, 60)"]
         ];
 
         const currentStyle = window.getComputedStyle(baseDiv).backgroundColor;
@@ -39,6 +40,9 @@ function dark() {
     } else {
         darkButton.setAttribute("src", "images/dark_mode.svg");
     }
+
+    //adjusts the map buttons, this is just for fun
+    document.getElementById("viewDiv").classList.toggle("dark");
 
 }
 

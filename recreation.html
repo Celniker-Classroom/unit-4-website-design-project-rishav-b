@@ -6,13 +6,7 @@
     <title>Document</title>
     <link rel = "stylesheet" href = "styles.css">
     <script type="module" src="https://js.arcgis.com/5.0/"></script>
-
-    <style>
-      #viewDiv {
-        height: 100%;
-        margin: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
 
     <script type="module">
       const [Map, FeatureLayer, SceneView, ElevationLayer, LabelClass, Basemap, TileLayer] =
@@ -133,107 +127,146 @@
     </script>
   </head>
 <style>
-     td {
-        width: 300px;
-        border: 0.5px solid black;
-        font-size: 12px;
-    }
-    th {
-        width: 300px;
-        border: 0.5px solid black;
-    }
-    table {
-        border: 0.5px solid black;
-    }
-    body {
-        padding: 0px;
-        font-family: 'Times New Roman', Times, serif;
-        margin: 0px;
-    }
-    .wide {
-        width: 80.5vw;
-    }
-    h2, h1, p {
-        padding: 10px;
-    }
-    .side-by-side {
-        display: flex;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
-.content {
-    background-color: rgb(255, 244, 232);
-    width: 20vw;
-}
+  body {
+    padding: 0px;
+    font-family: 'Google Sans', Times, serif;
+    margin: 0px;
+  }
 
-.content img {
-  width: 80%;
-  margin-left: 10%;
-}
+  body #viewDiv {
+      width: 80vw;
+      overflow-x: hidden;
+      height: 100%; 
+  }
 
-.third {
-    width: calc(33.33%);
-    height: 800px;
-    object-fit: cover;
-}
+  .dark .esri-widget--button {
+      background-color: #2b2b2b !important; 
+      color: #646464 !important; 
+      border: 1px solid #444 !important;
+  }
 
-.wide {
+  .dark .esri-widget--button:hover {
+      background-color: #3b3021 !important;
+      color: #383838 !important;
+  }
+
+  .stars img {
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+  .stars {
+    margin: 10px;
     display: flex;
-    justify-content: space-between;
-}
+    flex-wrap: nowrap;
+  }
 
-.wide-pic {
-    width: 79.5vw;
-    object-fit: cover;
-}
+  .stars-dark {
+    margin: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
 
-#header {
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;
-}
-
-.whitespace {
+  .whitespace {
     height: 20px;
     background-color: blanchedalmond;
-}
+  }
 
-h4, h5 {
-    margin: 10px;
-}
+  .whitespace-dark {
+    height: 20px;
+    background-color: rgb(53, 45, 35);
+  }
 
-h5 {
-    font-style: italic;
-    font-weight: 100;
-}
+  .content {
+    width: 20vw;
+    background-color: rgb(255, 244, 232);
 
-#pop-table {
-    margin: 10px;
-}
-.on-top {
-  flex-direction: column;
-}
-#viewDiv {
-  width: 80vw;
-  overflow-x: hidden;
-}
+  }
+
+  .content-dark {
+    background-color: rgb(26, 22, 17);
+    color: white;
+  }
+
+  .hiking-header {
+    display: flex;
+    align-items: center;
+    background-color: blanchedalmond;
+    justify-content: space-between;
+  }
+
+  .hiking-header-dark {
+    background-color: rgb(53, 45, 35);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stars p {
+    display: inline;
+    margin: 0px;
+    position: relative;
+  }
+
+  .stars-dark p {
+    display: inline;
+    margin: 0px;
+    position: relative;
+  }
+
+  .stars-dark img {
+    filter: invert(100%);
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+  .star_container {
+    position: relative;
+    display: inline-block;
+  }
+
+
+  .map-dark {
+    background-color: rgb(95, 79, 60);
+    color:white;
+  }
+
+  #nav-bar {
+    background-color: rgb(207, 174, 133);
+  }
+
+  .header-dark h1 {
+      text-shadow: 2px 0 rgb(26, 22, 17), -2px 0 rgb(26, 22, 17), 0 2px rgb(26, 22, 17), 0 -2px rgb(26, 22, 17),
+              1px 1px rgb(26, 22, 17), -1px -1px rgb(26, 22, 17), 1px -1px rgb(4, 23, 39), -1px 1px rgb(26, 22, 17);
+  }
+
+
 </style>
 <body>
     <div id = "nav-bar">
         <ul>
             <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
             <li><a href = "history.html">History</a></li>
-            <li><a href = "geography.html">Geography & Recreation</a></li>
-            <li><a href = "history.html">People & Neighborhoods</a></li>
+            <li><a href = "recreation.html">Recreation</a></li>
+            <li><a href = "people.html">People & Neighborhoods</a></li>
+            <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
         </ul>
     </div>
-    <div id = "header">
-        <h1>People & Neighborhoods</h1>
+    <div class = "header">
+        <h1>Recreation</h1>
         <div>
         
         <ol>
-            <li>Neighborhoods</li>
-            <li>Schools</li>
-            <li>Population Statistics</li>
+            <li>Hiking</li>
+            <li>Beaches</li>
+            <li>Geographic Information</li>
         </ol>
         </div>
     </div>
@@ -241,75 +274,35 @@ h5 {
     <div class = "side-by-side">
         <div class = "content">
             <center>
-            <h3>Statistics</h3>
+              <h3>Hiking</h3>
             </center>
-            <h4>Population Density</h4>
-            <h5>Carmel Valley has a population density of about 6,800 people per mi<sup>2</sup>, or about half the density of downtown. However, census tracts in Carmel Valley have up to 9,000 people per mi<sup>2</sup>.</h5>
-            
-            <h4>Population Over Time</h4>
-            <div id = "pop-table">
-              <table>
-                <tr>
-                  <th>Year</th>
-                  <th>Population (92130)</th>
-                </tr>
-                <tr>
-                  <td>2011</td>
-                  <td>47527</td>
-                </tr>
-                <tr>
-                  <td>2012</td>
-                  <td>47599</td>
-                </tr>
-                <tr>
-                  <td>2013</td>
-                  <td>48721</td>
-                </tr>
-                <tr>
-                  <td>2014</td>
-                  <td>50280</td>
-                </tr>
-                <tr>
-                  <td>2015</td>
-                  <td>51262</td>
-                </tr>
-                <tr>
-                  <td>2016</td>
-                  <td>51757</td>
-                </tr>
-                <tr>
-                  <td>2017</td>
-                  <td>54495</td>
-                </tr>
-                <tr>
-                  <td>2018</td>
-                  <td>55316</td>
-                </tr>
-                <tr>
-                  <td>2019</td>
-                  <td>56134</td>
-                </tr>
-                <tr>
-                  <td>2020</td>
-                  <td>56741</td>
-                </tr>
-                <tr>
-                  <td>2021</td>
-                  <td>57197</td>
-                </tr>
-                <tr>
-                  <td>2022</td>
-                  <td>57363</td>
-                </tr>
-                <tr>
-                  <td>2023</td>
-                  <td>59768</td>
-                </tr>
-              </table>
+            <p>Carmel Valley offers a diverse range of hiking experiences, from easy family walks through riparian forests to moderate climbs with sweeping ocean views. The area is defined by its extensive canyon systems and protected preserves. 
+            Top Hiking Destinations in Carmel Valley</p>
+            <img class = "hiking-image">
+            <div class = "hiking-header">
+              <h4>Carmel Mountain Preserve</h4>
+              <div class = "stars" id = "carmel_mountain"></div>
             </div>
-        </div>
-        <img src = "images/Carmel_Valley_San_Diego_2.jpg" class = "wide-pic" height = "500px">
+            <p>A local favorite for its accessibility and distant ocean views. Gorgeous views of the eastern mountains and western coast. Highlights the chaparral landscapes, native plants, and well-maintained dirt and paved paths.</p>
+            <div class = "hiking-header">
+              <h4>Los Penasquitos Canyon</h4>
+            <div class = "stars" id = "los_penasquitos"></div>
+            </div>
+            <p>Located just south and east of Carmel Valley, this preserve features a peaceful atmosphere and picturesque scenery.
+              Los Peñasquitos Creek Waterfall is highly recommended for families and children.</p>
+            <div class = "hiking-header">
+              <h4>Gonzales Canyon</h4>
 
+            <div class = "stars" id = "gonzales_canyon"></div>
+
+            </div>
+            <p> Home to various trails including the Carmel Valley Canyon Trail and passes through scenic canyon terrain. Described as feeling like the wilderness despite being in suburban San Diego.
+              Black Mountain Open Space Park is ocated nearby, offering more challenging terrain and panoramic vistas.</p>
+
+          </div>
+          <div class = "map">
+            <div id="viewDiv"></div>
+          </div>
     </div>
     <div class = "whitespace"></div>
     <div class = "side-by-side">
@@ -336,5 +329,8 @@ h5 {
             
         </div>
     </div>
+    <script src = "script.js"></script>
+    <script src = "header.js"></script>
+    <script src = "darkMode.js"></script>
 </body>
 </html>
