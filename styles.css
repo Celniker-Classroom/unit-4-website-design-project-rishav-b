@@ -113,8 +113,29 @@ h5 {
   color: white;
 }
 
-
 #dark {
   filter: invert(100%);
   border: none;
+}
+
+.side-by-side {
+  display: flex;       /* This puts children side-by-side */
+  width: 100%;        /* Take up full width */
+  height: 100vh;      /* Adjust height as needed */
+  overflow: hidden;   /* Prevents unwanted scrollbars */
+}
+
+/* Sidebar: Fixed at 20% */
+.content {
+  flex: 0 0 20%;      /* Do not grow, do not shrink, stay at 20% */
+  background-color: rgb(255, 244, 232);
+  overflow-y: auto;   /* Allows scrolling inside the sidebar if text is long */
+}
+
+/* Map: Fixed at 80% */
+body #viewDiv {
+  flex: 0 0 80%;      /* Do not grow, do not shrink, stay at 80% */
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

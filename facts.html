@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+    .fact {
+        background-color: rgb(255, 227, 242);
+        color: black;
+        font-family: "Google Sans";
+        padding: 20px;
+        margin: 10px;
+        width: 20vw;
+        border-radius: 20px;
+    }
+
+    .read-more.showing {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .read-more {
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 90%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%);
+    }
+    
+    .fact button {
+        color: rgb(255, 54, 161);
+        font-size: 16px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+</style>
+<body>
+    <div id = "facts">
+        <div class = "fact">
+            In 1905, the Carmelite Sisters of Mercy established a monastery and a dairy farm in McGonigle Canyon.
+            <img class = "fact-image">
+        </div>
+
+        <div class = "fact">
+            The McGonigle family actually gave the nuns 1,000 acres of land in exchange for healthcare services at Mercy Hospital.
+            <div class = "read-more">
+                Exactly how the nuns came to own 1,000 acres is a bit of a mystery. The land had been half of a larger spread owned by the McGonigle family, the valley’s early settlers who had emigrated from Ireland in the early 1870s.
+
+                According to one account, the McGonigles couldn’t pay their mortgage and gave the land to the Sisters after the nuns paid down the debt. Another account was that the nuns got a deal after nursing the family through illness.
+
+                Over the years, the nuns grew vegetables, raised hogs and cows, and made daily deliveries of milk to Mercy Hospital.
+            </div>
+            <button class = "expand">Read More</button>
+            <img class = "fact-image">
+        </div>
+
+        <div class = "fact">
+            Biblical Hill: The nuns named a nearby hill "Mount Carmel" after a place in Jerusalem, which eventually gave the entire valley its name.
+            <img class = "fact-image">
+        </div>
+    </div>
+
+    
+</body>
+<script src = "readMore.js"></script>
+
+
+</html>
