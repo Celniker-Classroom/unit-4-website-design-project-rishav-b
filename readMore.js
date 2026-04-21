@@ -8,5 +8,15 @@ document.querySelectorAll(".expand").forEach(btn => {
                 btn.innerHTML = "Read More";
             }
         });
+        document.querySelectorAll(".pink-arrow").forEach(arr => {
+            if (arr.getAttribute("src") === "images/uparrow.svg") {
+                arr.setAttribute("src", "images/downarrow.svg");
+            } else {
+                arr.setAttribute("src", "images/uparrow.svg");
+            }
+        });
+        document.querySelectorAll(".hidden").forEach(hidey => {
+            hidey.classList.toggle("showing");
+        });
     });
 });

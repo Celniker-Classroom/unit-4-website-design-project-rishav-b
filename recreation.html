@@ -135,10 +135,10 @@
     margin: 0px;
   }
 
-  body #viewDiv {
+  #viewDiv {
       width: 80vw;
-      overflow-x: hidden;
-      height: 100%; 
+      float: right;
+      box-sizing: border-box;
   }
 
   .dark .esri-widget--button {
@@ -188,6 +188,7 @@
   }
 
   .content-dark {
+    width: 20vw;
     background-color: rgb(26, 22, 17);
     color: white;
   }
@@ -256,6 +257,7 @@
             <li><a href = "history.html">History</a></li>
             <li><a href = "recreation.html">Recreation</a></li>
             <li><a href = "people.html">People & Neighborhoods</a></li>
+            <li><a href = "facts.html">Fun Facts</a></li>
             <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
         </ul>
     </div>
@@ -310,22 +312,15 @@
           <center>
           <h3>Neighborhoods</h3>
           </center>
-          <h4>Pacific Highlands Ranch</h4>
-          <h5>New construction, walkable Village center. Modern, active families.</h5>
-          <h4>Torrey Hills</h4>
-          <h5>Gated, quiet, close to tech hubs. Commuter convenience, tranquility.</h5>
-          <h4>Carmel Country Highlands</h4> 
-          <h5>Gated, multi-bedroom homes. Large families, school proximity. </h5>
-          <h4>Del Mar Mesa</h4>
-          <h5>Expansive lots, nature-intertwined. Privacy, safety, rural-suburban mix. </h5>
-          <h4>Bayshore</h4>
-          <h5>Modern designs, pool amenities. Range of budgets and preferences. </h5>
+          <div class = "stars" id = "del_mar"></div>
+          <div class = "stars" id = "torrey_pines"></div>
+          <div class = "stars" id = "carmel_mountain"></div>
       </div>
         
         <div class = "wide">
-            <img src = "images/The-Village_Exterior-26-1024x683.jpg" class = "third">
-            <img src = "images/6581407a9fb59c26c9d4782198a21f03l-m461001305rd-w960_h720.jpg" class = "third">
-            <img src = "images/LG-FIN-DRONE2.avif" class = "third">
+            <img src = "images/del_mar_dog.webp" class = "third">
+            <img src = "images/fletcher_cove.webp" class = "third">
+            <img src = "images/torrey_pines_state_beach.webp" class = "third">
             
         </div>
     </div>

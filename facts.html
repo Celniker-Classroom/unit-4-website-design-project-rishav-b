@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel = "stylesheet" href = "styles.css">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
@@ -15,6 +16,7 @@
         margin: 10px;
         width: 20vw;
         border-radius: 20px;
+        border: 1px solid transparent
     }
 
     .read-more.showing {
@@ -22,8 +24,12 @@
         mask-image: none;
     }
     .read-more {
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 90%);
-        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+    }
+    
+    .hidden.showing {
+        display: none;
     }
     
     .fact button {
@@ -33,30 +39,84 @@
         background-color: rgba(0, 0, 0, 0);
         border: none;
     }
+
+    .fact button:hover {
+        cursor: pointer;
+    }
+
+    .pink-arrow {
+        filter: invert(56%) sepia(91%) saturate(1352%) hue-rotate(301deg) brightness(105%) contrast(101%);
+    }
+
+    .button-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fact-header {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    #nav-bar {
+        background-color: rgb(255, 112, 155);
+    }
+
 </style>
 <body>
+    <div id = "nav-bar">
+        <ul>
+            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+            <li><a href = "history.html">History</a></li>
+            <li><a href = "recreation.html">Recreation</a></li>
+            <li><a href = "people.html">People & Neighborhoods</a></li>
+            <li><a href = "facts.html">Fun Facts</a></li>
+            <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
+        </ul>
+    </div>
     <div id = "facts">
         <div class = "fact">
-            In 1905, the Carmelite Sisters of Mercy established a monastery and a dairy farm in McGonigle Canyon.
+            <center>
+                <h2 class = "fact-header">How the Name Came</h2>
+            </center>
+            In 1905, the Carmelite Sisters of Mercy established a monastery and a dairy farm in McGonigle Canyon. The nuns named a nearby hill "Mount Carmel" after a place in Jerusalem, which eventually gave the entire valley its name.
             <img class = "fact-image">
         </div>
 
         <div class = "fact">
+            <center>
+                <h2 class = "fact-header">McGonigle & Mercy</h2>
+            </center>
             The McGonigle family actually gave the nuns 1,000 acres of land in exchange for healthcare services at Mercy Hospital.
             <div class = "read-more">
+                <br>
                 Exactly how the nuns came to own 1,000 acres is a bit of a mystery. The land had been half of a larger spread owned by the McGonigle family, the valley’s early settlers who had emigrated from Ireland in the early 1870s.
 
-                According to one account, the McGonigles couldn’t pay their mortgage and gave the land to the Sisters after the nuns paid down the debt. Another account was that the nuns got a deal after nursing the family through illness.
+                <div class = "hidden showing">
+                    According to one account, the McGonigles couldn’t pay their mortgage and gave the land to the Sisters after the nuns paid down the debt. Another account was that the nuns got a deal after nursing the family through illness.
 
-                Over the years, the nuns grew vegetables, raised hogs and cows, and made daily deliveries of milk to Mercy Hospital.
+                    Over the years, the nuns grew vegetables, raised hogs and cows, and made daily deliveries of milk to Mercy Hospital.
+                    <br><br>
+                </div>
             </div>
-            <button class = "expand">Read More</button>
+            <div class = "button-arrow">
+                <button class = "expand">Read More</button><img class = "pink-arrow" src = "images/downarrow.svg">
+            </div>
             <img class = "fact-image">
         </div>
-
         <div class = "fact">
-            Biblical Hill: The nuns named a nearby hill "Mount Carmel" after a place in Jerusalem, which eventually gave the entire valley its name.
-            <img class = "fact-image">
+            <center>
+                <h2 class = "fact-header">The Pioneer Cemetery</h2>
+            </center>
+            Tucked away behind St. Therese of Carmel Catholic Church is the Carmel Valley Cemetery. Established in 1900, it remains the final resting place for several local pioneers and the nuns who settled the area.
+        </div>
+        <div class = "fact">
+            <center>
+                <h2 class = "fact-header">Lima Beans to Luxury Golf</h2>
+            </center>
+            Lima Beans to Luxury Golf: Before it was a world-class resort, the land at The Grand Del Mar was a humble lima bean farm.
         </div>
     </div>
 
