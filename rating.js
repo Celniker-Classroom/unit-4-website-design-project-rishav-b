@@ -2,7 +2,11 @@
 const starData = new Map([
     ["carmel_mountain", 4.6],
     ["los_penasquitos", 4.7],
-    ["gonzales_canyon", 4.4]
+    ["gonzales_canyon", 4.4],
+    ["del_mar_beach", 4.7],
+    ["fletcher_cove",4.8],
+    ["torrey_pines_beach",4.8]
+
 ])
 
 for (const [key, value] of starData) {
@@ -28,7 +32,3 @@ for (const [key, value] of starData) {
     }
 
 }
-
-
-
-
