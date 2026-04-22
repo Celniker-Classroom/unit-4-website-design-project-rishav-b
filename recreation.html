@@ -1,131 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet" href = "styles.css">
-    <script type="module" src="https://js.arcgis.com/5.0/"></script>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://js.arcgis.com/5.0/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
 
-    <script type="module">
-      const [Map, FeatureLayer, SceneView, ElevationLayer, LabelClass, Basemap, TileLayer] =
-        await $arcgis.import([
-          "@arcgis/core/Map.js",
-          "@arcgis/core/layers/FeatureLayer.js",
-          "@arcgis/core/views/SceneView.js",
-          "@arcgis/core/layers/ElevationLayer.js",
-          "@arcgis/core/layers/support/LabelClass.js",
-          "@arcgis/core/Basemap.js",
-          "@arcgis/core/layers/TileLayer.js",
-        ]);
-
-
-      const map = new Map({
-        ground: {
-          layers: [
-            new ElevationLayer({
-              url: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer",
-            }),
-          ],
-        },
-        basemap: "hybrid",
-    ground: "world-elevation" 
-      });
+  <script type="module">
+    const [Map, FeatureLayer, SceneView, ElevationLayer, LabelClass, Basemap, TileLayer] =
+      await $arcgis.import([
+        "@arcgis/core/Map.js",
+        "@arcgis/core/layers/FeatureLayer.js",
+        "@arcgis/core/views/SceneView.js",
+        "@arcgis/core/layers/ElevationLayer.js",
+        "@arcgis/core/layers/support/LabelClass.js",
+        "@arcgis/core/Basemap.js",
+        "@arcgis/core/layers/TileLayer.js",
+      ]);
 
 
-      const view = new SceneView({
-        container: "viewDiv",
-        map: map,
-        camera: {
-          position: [-117.21660634870682, 32.94605933493627, 1574.65501],
-          heading: 0.51,
-          tilt: 45,
-        },
-      });
-
-
-      const trails = new FeatureLayer({
-        url: "https://services1.arcgis.com/SIYkiqjmENweC50g/arcgis/rest/services/DPR_TRAIL/FeatureServer",
-        elevationInfo: {
-          mode: "relative-to-ground",
-          offset: 3,
-        },
-
-        renderer: {
-          type: "simple",
-          symbol: {
-            type: "line-3d",
-            symbolLayers: [
-              {
-                type: "line",
-                material: { color: "#FF5500" },
-                size: "2px",
-              },
-            ],
-          },
-        },
-      });
-
-      const trailHeads = new FeatureLayer({
-        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/Trailheads/FeatureServer#:~:text=Service%20Description:,Operations:%20Query%20ConvertFormat%20Get%20Estimates",
-        elevationInfo: {
-          mode: "relative-to-ground",
-        },
-        renderer: {
-          type: "simple",
-          symbol: {
-            type: "point-3d",
-            symbolLayers: [
-              {
-                type: "icon",
-                resource: { primitive: "circle" },
-                material: { color: "#FF5500" },
-                outline: { color: "#FFFFFF", size: 1 },
-                size: "10px",
-              },
-            ],
-            verticalOffset: {
-              screenLength: 20,
-              maxWorldLength: 200,
-              minWorldLength: 20,
-            },
-            callout: {
-              type: "line",
-              size: 1,
-              color: "#FFFFFF",
-            },
-          },
-        },
-        labelingInfo: [
-          new LabelClass({
-            labelExpressionInfo: { expression: "$feature.TRL_NAME" },
-            symbol: {
-              type: "label-3d",
-              symbolLayers: [
-                {
-                  type: "text",
-                  material: {
-                    color: "#FFFFFF",
-                  },
-                  halo: {
-                    size: 1,
-                    color: [0, 0, 0, 0.5],
-                  },
-                  font: {
-                    size: 11,
-                    family: "sans-serif",
-                  },
-                },
-              ],
-            },
+    const map = new Map({
+      ground: {
+        layers: [
+          new ElevationLayer({
+            url: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer",
           }),
         ],
-      });
+      },
+      basemap: "hybrid",
+      ground: "world-elevation"
+    });
 
-      map.addMany([trails, trailHeads]);
-    </script>
-  </head>
+
+    const view = new SceneView({
+      container: "viewDiv",
+      map: map,
+      camera: {
+        position: [-117.21660634870682, 32.94605933493627, 1574.65501],
+        heading: 0.51,
+        tilt: 45,
+      },
+    });
+
+
+    const trails = new FeatureLayer({
+      url: "https://services1.arcgis.com/SIYkiqjmENweC50g/arcgis/rest/services/DPR_TRAIL/FeatureServer",
+      elevationInfo: {
+        mode: "relative-to-ground",
+        offset: 3,
+      },
+
+      renderer: {
+        type: "simple",
+        symbol: {
+          type: "line-3d",
+          symbolLayers: [
+            {
+              type: "line",
+              material: { color: "#FF5500" },
+              size: "2px",
+            },
+          ],
+        },
+      },
+    });
+
+    const trailHeads = new FeatureLayer({
+      url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/Trailheads/FeatureServer#:~:text=Service%20Description:,Operations:%20Query%20ConvertFormat%20Get%20Estimates",
+      elevationInfo: {
+        mode: "relative-to-ground",
+      },
+      renderer: {
+        type: "simple",
+        symbol: {
+          type: "point-3d",
+          symbolLayers: [
+            {
+              type: "icon",
+              resource: { primitive: "circle" },
+              material: { color: "#FF5500" },
+              outline: { color: "#FFFFFF", size: 1 },
+              size: "10px",
+            },
+          ],
+          verticalOffset: {
+            screenLength: 20,
+            maxWorldLength: 200,
+            minWorldLength: 20,
+          },
+          callout: {
+            type: "line",
+            size: 1,
+            color: "#FFFFFF",
+          },
+        },
+      },
+      labelingInfo: [
+        new LabelClass({
+          labelExpressionInfo: { expression: "$feature.TRL_NAME" },
+          symbol: {
+            type: "label-3d",
+            symbolLayers: [
+              {
+                type: "text",
+                material: {
+                  color: "#FFFFFF",
+                },
+                halo: {
+                  size: 1,
+                  color: [0, 0, 0, 0.5],
+                },
+                font: {
+                  size: 11,
+                  family: "sans-serif",
+                },
+              },
+            ],
+          },
+        }),
+      ],
+    });
+
+    map.addMany([trails, trailHeads]);
+  </script>
+</head>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
@@ -136,20 +137,20 @@
   }
 
   #viewDiv {
-      width: 80vw;
-      float: right;
-      box-sizing: border-box;
+    width: 80vw;
+    float: right;
+    box-sizing: border-box;
   }
 
   .dark .esri-widget--button {
-      background-color: #2b2b2b !important; 
-      color: #646464 !important; 
-      border: 1px solid #444 !important;
+    background-color: #2b2b2b !important;
+    color: #646464 !important;
+    border: 1px solid #444 !important;
   }
 
   .dark .esri-widget--button:hover {
-      background-color: #3b3021 !important;
-      color: #383838 !important;
+    background-color: #3b3021 !important;
+    color: #383838 !important;
   }
 
   .stars img {
@@ -236,7 +237,7 @@
 
   .map-dark {
     background-color: rgb(95, 79, 60);
-    color:white;
+    color: white;
   }
 
   #nav-bar {
@@ -244,88 +245,93 @@
   }
 
   .header-dark h1 {
-      text-shadow: 2px 0 rgb(26, 22, 17), -2px 0 rgb(26, 22, 17), 0 2px rgb(26, 22, 17), 0 -2px rgb(26, 22, 17),
-              1px 1px rgb(26, 22, 17), -1px -1px rgb(26, 22, 17), 1px -1px rgb(4, 23, 39), -1px 1px rgb(26, 22, 17);
+    text-shadow: 2px 0 rgb(26, 22, 17), -2px 0 rgb(26, 22, 17), 0 2px rgb(26, 22, 17), 0 -2px rgb(26, 22, 17),
+      1px 1px rgb(26, 22, 17), -1px -1px rgb(26, 22, 17), 1px -1px rgb(4, 23, 39), -1px 1px rgb(26, 22, 17);
   }
-
-
 </style>
+
 <body>
-    <div id = "nav-bar">
-        <ul>
-            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
-            <li><a href = "history.html">History</a></li>
-            <li><a href = "recreation.html">Recreation</a></li>
-            <li><a href = "people.html">People & Neighborhoods</a></li>
-            <li><a href = "facts.html">Fun Facts</a></li>
-            <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
-        </ul>
-    </div>
-    <div class = "header">
-        <h1>Recreation</h1>
-        <div>
-        
-        <ol>
-            <li>Hiking</li>
-            <li>Beaches</li>
-            <li>Geographic Information</li>
-        </ol>
-        </div>
-    </div>
-    <div class = "whitespace"></div>
-    <div class = "side-by-side">
-        <div class = "content">
-            <center>
-              <h3>Hiking</h3>
-            </center>
-            <p>Carmel Valley offers a diverse range of hiking experiences, from easy family walks through riparian forests to moderate climbs with sweeping ocean views. The area is defined by its extensive canyon systems and protected preserves. 
-            Top Hiking Destinations in Carmel Valley</p>
-            <img class = "hiking-image">
-            <div class = "hiking-header">
-              <h4>Carmel Mountain Preserve</h4>
-              <div class = "stars" id = "carmel_mountain"></div>
-            </div>
-            <p>A local favorite for its accessibility and distant ocean views. Gorgeous views of the eastern mountains and western coast. Highlights the chaparral landscapes, native plants, and well-maintained dirt and paved paths.</p>
-            <div class = "hiking-header">
-              <h4>Los Penasquitos Canyon</h4>
-            <div class = "stars" id = "los_penasquitos"></div>
-            </div>
-            <p>Located just south and east of Carmel Valley, this preserve features a peaceful atmosphere and picturesque scenery.
-              Los Peñasquitos Creek Waterfall is highly recommended for families and children.</p>
-            <div class = "hiking-header">
-              <h4>Gonzales Canyon</h4>
+  <div id="nav-bar">
+    <ul>
+      <li><a href="home.html"><img alt="Home button" src="images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a>
+      </li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="recreation.html">Recreation</a></li>
+      <li><a href="people.html">People & Neighborhoods</a></li>
+      <li><a href="facts.html">Fun Facts</a></li>
+      <li><a id="dark"><img alt="Dark mode" id="dark-image" src="images/dark_mode.svg"></a></li>
+    </ul>
+  </div>
+  <div class="header">
+    <h1>Recreation</h1>
+    <div>
 
-            <div class = "stars" id = "gonzales_canyon"></div>
-
-            </div>
-            <p> Home to various trails including the Carmel Valley Canyon Trail and passes through scenic canyon terrain. Described as feeling like the wilderness despite being in suburban San Diego.
-              Black Mountain Open Space Park is ocated nearby, offering more challenging terrain and panoramic vistas.</p>
-
-          </div>
-          <div class = "map">
-            <div id="viewDiv"></div>
-          </div>
+      <ol>
+        <li>Hiking</li>
+        <li>Beaches</li>
+        <li>Geographic Information</li>
+      </ol>
     </div>
-    <div class = "whitespace"></div>
-    <div class = "side-by-side">
-      <div class = "content">
-          <center>
-          <h3>Neighborhoods</h3>
-          </center>
-          <div class = "stars" id = "del_mar"></div>
-          <div class = "stars" id = "torrey_pines"></div>
-          <div class = "stars" id = "carmel_mountain"></div>
+  </div>
+  <div class="whitespace"></div>
+  <div class="side-by-side">
+    <div class="content">
+      <center>
+        <h3>Hiking</h3>
+      </center>
+      <p>Carmel Valley offers a diverse range of hiking experiences, from easy family walks through riparian forests to
+        moderate climbs with sweeping ocean views. The area is defined by its extensive canyon systems and protected
+        preserves.
+        Top Hiking Destinations in Carmel Valley</p>
+      <div class="hiking-header">
+        <h4>Carmel Mountain Preserve</h4>
+        <div class="stars" id="carmel_mountain"></div>
       </div>
-        
-        <div class = "wide">
-            <img src = "images/del_mar_dog.webp" class = "third">
-            <img src = "images/fletcher_cove.webp" class = "third">
-            <img src = "images/torrey_pines_state_beach.webp" class = "third">
-            
-        </div>
+      <p>A local favorite for its accessibility and distant ocean views. Gorgeous views of the eastern mountains and
+        western coast. Highlights the chaparral landscapes, native plants, and well-maintained dirt and paved paths.</p>
+      <div class="hiking-header">
+        <h4>Los Penasquitos Canyon</h4>
+        <div class="stars" id="los_penasquitos"></div>
+      </div>
+      <p>Located just south and east of Carmel Valley, this preserve features a peaceful atmosphere and picturesque
+        scenery.
+        Los Peñasquitos Creek Waterfall is highly recommended for families and children.</p>
+      <div class="hiking-header">
+        <h4>Gonzales Canyon</h4>
+
+        <div class="stars" id="gonzales_canyon"></div>
+
+      </div>
+      <p> Home to various trails including the Carmel Valley Canyon Trail and passes through scenic canyon terrain.
+        Described as feeling like the wilderness despite being in suburban San Diego.
+        Black Mountain Open Space Park is ocated nearby, offering more challenging terrain and panoramic vistas.</p>
+
     </div>
-    <script src = "script.js"></script>
-    <script src = "header.js"></script>
-    <script src = "darkMode.js"></script>
+    <div class="map">
+      <div id="viewDiv"></div>
+    </div>
+  </div>
+  <div class="whitespace"></div>
+  <div class="side-by-side">
+    <div class="content">
+      <center>
+        <h3>Neighborhoods</h3>
+      </center>
+      <div class="stars" id="del_mar"></div>
+      <div class="stars" id="torrey_pines"></div>
+      <div class="stars" id="carmel_mountain"></div>
+    </div>
+
+    <div class="wide">
+      <img src="images/del_mar_dog.webp" class="third" alt="Del Mar Dog Beach">
+      <img src="images/fletcher_cove.webp" class="third" alt="Fletcher Cove">
+      <img src="images/torrey_pines_state_beach.webp" class="third" alt="Torrey Pines State Beach">
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="header.js"></script>
+  <script src="darkMode.js"></script>
 </body>
+
 </html>

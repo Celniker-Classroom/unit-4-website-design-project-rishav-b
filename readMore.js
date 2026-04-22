@@ -20,3 +20,24 @@ document.querySelectorAll(".expand").forEach(btn => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const facts = document.querySelectorAll(".fact");
+
+    facts.forEach(fact => {
+        fact.addEventListener("click", () => {
+            const imgSrc = fact.dataset.image;
+
+            const oldBox = document.getElementById("image-placeholder");
+
+            if (oldBox) {
+                oldBox.outerHTML = `<img id="fact-image" src="${imgSrc}" alt="Fact image">`;
+            } else {
+                const img = document.getElementById("fact-image");
+                if (img) {
+                    img.src = imgSrc;
+                }
+            }
+        });
+    });
+});

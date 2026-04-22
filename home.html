@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All About Carmel Valley</title>
-    <link rel = "stylesheet" href = "styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All About Carmel Valley</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <style>
+  body {
+    /* Ensure no default margin or padding on the body */
+    margin: 0;
+    padding: 0;
+    /* Ensure the body covers the entire viewport height */
+    width: 100vw;
+    /* Use 100vw, but be mindful of scrollbars */
+    overflow-x: hidden;
+    /* Hide scrollbars if unwanted */
+  }
 
- 
-body {
-  /* Ensure no default margin or padding on the body */
-  margin: 0;
-  padding: 0;
-  /* Ensure the body covers the entire viewport height */
-  width: 100vw; /* Use 100vw, but be mindful of scrollbars */
-  overflow-x: hidden; /* Hide scrollbars if unwanted */
-}
-
-#header h1 {
-    font-family:'Brush Script MT', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  #header h1 {
+    font-family: 'Brush Script MT', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     margin-top: 0vw;
     font-size: 150px;
     position: absolute;
     text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
-               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-}
+      1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  }
 
-#nav-bar {
-  position: fixed;
-}
+  #nav-bar {
+    position: fixed;
+  }
 
-#header {
-  position: relative;
-  height: 400px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
+  #header {
+    position: relative;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 </style>
+
 <body>
-<div id = "nav-bar">
+  <div id="nav-bar">
     <ul>
-            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
-            <li><a href = "history.html">History</a></li>
-            <li><a href = "recreation.html">Recreation</a></li>
-            <li><a href = "people.html">People & Neighborhoods</a></li>
-            <li><a href = "facts.html">Fun Facts</a></li>
+      <li><a href="home.html"><img alt="Home button" src="images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a>
+      </li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="recreation.html">Recreation</a></li>
+      <li><a href="people.html">People & Neighborhoods</a></li>
+      <li><a href="facts.html">Fun Facts</a></li>
     </ul>
-</div>
-<div id = "header">
-<img src = "images/aerial_header.webp" alt = "Aerial image of Carmel Valley, San Diego" style = "width: 100vw; height: 400px; position: absolute; object-fit: cover;">
-<h1>Carmel Valley</h1>
-</div>
-
-
+  </div>
+  <div id="header">
+    <img src="images/aerial_header.webp" alt="Aerial image of Carmel Valley, San Diego"
+      style="width: 100vw; height: 400px; position: absolute; object-fit: cover;">
+    <h1>Carmel Valley</h1>
+  </div>
+  <p>This website covers many topics about Carmel Valley such as: </p>
+  <ol>
+    <li>History - Recent history and development of Carmel Valley.</li>
+    <li>Recreation - Fun things to do outside in Carmel Valley, like hiking and beaches.</li>
+    <li>People & Neighborhoods - Where people live in Carmel Valley.</li>
+    <li>Fun Facts - Random tidbits of information.</li>
+  </ol>
 
 
 
 </body>
+
 </html>

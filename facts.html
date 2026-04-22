@@ -1,37 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel = "stylesheet" href = "styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+    #facts-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        margin: 10px;
+        width: 100%;
+    }
+
+
+    #facts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        width: 100%;
+    }
+
+    #fact-image-panel {
+        position: sticky;
+        top: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 80vh;
+    }
+
+    #fact-image {
+        border: 4px solid rgb(255, 227, 242);
+
+        box-shadow:
+            0 0 0 6px rgb(255, 112, 155),
+            0 0 0 10px rgb(255, 227, 242),
+            0 0 0 14px rgb(255, 112, 155);
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+
+        border-radius: 15px;
+
+        display: block;
+        margin: auto;
+    }
+
     .fact {
         background-color: rgb(255, 227, 242);
         color: black;
+        box-sizing: border-box;
         font-family: "Google Sans";
         padding: 20px;
-        margin: 10px;
-        width: 20vw;
+        width: 100%;
+        margin: 0;
         border-radius: 20px;
-        border: 1px solid transparent
+        border: 1px solid rgb(255, 112, 155);
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .fact-dark {
+        background-color: rgb(97, 11, 36);
+        color: white;
+        box-sizing: border-box;
+        font-family: "Google Sans";
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        border-radius: 20px;
+        border: 1px solid rgb(255, 112, 155);
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .fact:hover {
+        transform: scale(1.03);
+    }
+
+    .facts-content {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .facts-content-dark {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(9, 1, 3);
     }
 
     .read-more.showing {
         -webkit-mask-image: none;
         mask-image: none;
     }
+
     .read-more {
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
-        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
     }
-    
+
     .hidden.showing {
         display: none;
     }
-    
+
     .fact button {
         color: rgb(255, 54, 161);
         font-size: 16px;
@@ -40,7 +120,19 @@
         border: none;
     }
 
+    .fact-dark button {
+        color: rgb(255, 54, 161);
+        font-size: 16px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+
     .fact button:hover {
+        cursor: pointer;
+    }
+
+    .fact-dark button:hover {
         cursor: pointer;
     }
 
@@ -60,69 +152,120 @@
         margin-bottom: 10px;
     }
 
+    #image-placeholder {
+        border: 4px solid rgb(255, 227, 242);
+
+        box-shadow:
+            0 0 0 6px rgb(255, 112, 155),
+            0 0 0 10px rgb(255, 227, 242),
+            0 0 0 14px rgb(255, 112, 155);
+        width: 80%;
+        height: 80%;
+
+        border-radius: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: rgb(255, 112, 155);
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
     #nav-bar {
         background-color: rgb(255, 112, 155);
     }
-
 </style>
-<body>
-    <div id = "nav-bar">
+
+<body class="facts-content">
+    <div id="nav-bar">
         <ul>
-            <li><a href = "home.html"><img alt = "Home button" src = "images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
-            <li><a href = "history.html">History</a></li>
-            <li><a href = "recreation.html">Recreation</a></li>
-            <li><a href = "people.html">People & Neighborhoods</a></li>
-            <li><a href = "facts.html">Fun Facts</a></li>
-            <li><a id = "dark"><img alt = "Dark mode" id = "dark-image" src = "images/dark_mode.svg"></a></li>
+            <li><a href="home.html"><img alt="Home button"
+                        src="images/home_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"></a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="recreation.html">Recreation</a></li>
+            <li><a href="people.html">People & Neighborhoods</a></li>
+            <li><a href="facts.html">Fun Facts</a></li>
+            <li><a id="dark"><img alt="Dark mode" id="dark-image" src="images/dark_mode.svg"></a></li>
         </ul>
     </div>
-    <div id = "facts">
-        <div class = "fact">
-            <center>
-                <h2 class = "fact-header">How the Name Came</h2>
-            </center>
-            In 1905, the Carmelite Sisters of Mercy established a monastery and a dairy farm in McGonigle Canyon. The nuns named a nearby hill "Mount Carmel" after a place in Jerusalem, which eventually gave the entire valley its name.
-            <img class = "fact-image">
-        </div>
+    <div id="facts-layout">
+        <div id="facts">
+            <div class="fact" data-image="images/farmhouse.webp">
+                <center>
+                    <h2 class="fact-header">How the Name Came</h2>
+                </center>
+                In 1905, the Carmelite Sisters of Mercy established a monastery and a dairy farm in McGonigle
+                Canyon.
+                The
+                nuns named a nearby hill "Mount Carmel" after a place in Jerusalem, which eventually gave the entire
+                valley
+                its name.
+            </div>
 
-        <div class = "fact">
-            <center>
-                <h2 class = "fact-header">McGonigle & Mercy</h2>
-            </center>
-            The McGonigle family actually gave the nuns 1,000 acres of land in exchange for healthcare services at Mercy Hospital.
-            <div class = "read-more">
-                <br>
-                Exactly how the nuns came to own 1,000 acres is a bit of a mystery. The land had been half of a larger spread owned by the McGonigle family, the valley’s early settlers who had emigrated from Ireland in the early 1870s.
+            <div class="fact" data-image="images/mcgonigle.jpeg">
+                <center>
+                    <h2 class="fact-header">McGonigle & Mercy</h2>
+                </center>
+                The McGonigle family actually gave the nuns 1,000 acres of land in exchange for healthcare services
+                at
+                Mercy
+                Hospital.
+                <div class="read-more">
+                    Exactly how the nuns came to own 1,000 acres is a bit of a mystery. The land had been half of a
+                    larger
+                    spread owned by the McGonigle family, the valley’s early settlers who had emigrated from Ireland
+                    in
+                    the
+                    early 1870s.
 
-                <div class = "hidden showing">
-                    According to one account, the McGonigles couldn’t pay their mortgage and gave the land to the Sisters after the nuns paid down the debt. Another account was that the nuns got a deal after nursing the family through illness.
+                    <div class="hidden showing">
+                        According to one account, the McGonigles couldn’t pay their mortgage and gave the land to
+                        the
+                        Sisters after the nuns paid down the debt. Another account was that the nuns got a deal
+                        after
+                        nursing the family through illness.
 
-                    Over the years, the nuns grew vegetables, raised hogs and cows, and made daily deliveries of milk to Mercy Hospital.
-                    <br><br>
+                        Over the years, the nuns grew vegetables, raised hogs and cows, and made daily deliveries of
+                        milk to
+                        Mercy Hospital.
+                        <br><br>
+                    </div>
+                </div>
+                <div class="button-arrow">
+                    <button class="expand">Read More</button><img class="pink-arrow" src="images/downarrow.svg"
+                        alt="Down Arrow - Expand Content">
                 </div>
             </div>
-            <div class = "button-arrow">
-                <button class = "expand">Read More</button><img class = "pink-arrow" src = "images/downarrow.svg">
+            <div class="fact" data-image="images/Carmel-Valley-Cemetery-3.jpg">
+                <center>
+                    <h2 class="fact-header">The Pioneer Cemetery</h2>
+                </center>
+                Tucked away behind St. Therese of Carmel Catholic Church is the Carmel Valley Cemetery. Established
+                in
+                1900,
+                it remains the final resting place for several local pioneers and the nuns who settled the area.
             </div>
-            <img class = "fact-image">
+            <div class="fact" data-image="images/golf_course.jpeg">
+                <center>
+                    <h2 class="fact-header">Lima Beans to Luxury Golf</h2>
+                </center>
+                Lima Beans to Luxury Golf: Before it was a world-class resort, the land at The Grand Del Mar was a
+                humble
+                lima bean farm.
+            </div>
         </div>
-        <div class = "fact">
-            <center>
-                <h2 class = "fact-header">The Pioneer Cemetery</h2>
-            </center>
-            Tucked away behind St. Therese of Carmel Catholic Church is the Carmel Valley Cemetery. Established in 1900, it remains the final resting place for several local pioneers and the nuns who settled the area.
-        </div>
-        <div class = "fact">
-            <center>
-                <h2 class = "fact-header">Lima Beans to Luxury Golf</h2>
-            </center>
-            Lima Beans to Luxury Golf: Before it was a world-class resort, the land at The Grand Del Mar was a humble lima bean farm.
+        <div id="fact-image-panel">
+            <div id="image-placeholder">
+                Click on a fact to reveal an image
+            </div>
         </div>
     </div>
 
-    
+
 </body>
-<script src = "readMore.js"></script>
+<script src="readMore.js"></script>
+<script src="darkMode.js"></script>
 
 
 </html>

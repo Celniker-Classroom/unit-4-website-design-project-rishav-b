@@ -1,11 +1,11 @@
-function dark() {  
-    const baseClasses = ["content", "whitespace", "hiking-header", "stars","header","map","timelapse-text"];
+function dark() {
+    const baseClasses = ["content", "whitespace", "hiking-header", "stars", "header", "map", "timelapse-text", "facts-content", "fact"];
     const baseIds = ["nav-bar"];
-    
+
     baseClasses.forEach((className) => {
         // Select elements that have either class
         const divList = document.querySelectorAll(`.${className}, .${className}-dark`);
-        
+
         divList.forEach((div) => {
             if (div.classList.contains(className)) {
                 div.classList.replace(className, `${className}-dark`);
@@ -18,9 +18,10 @@ function dark() {
     baseIds.forEach((baseId) => {
         const baseDiv = document.getElementById(baseId);
         const colorPairs = [
-            [ "rgb(26, 22, 17)", "rgb(207, 174, 133)" ],
-            [ "rgb(110, 157, 201)", "rgb(4, 23, 39)" ],
-            [ "rgb(209, 155, 234)", "rgb(45, 14, 60)"]
+            ["rgb(26, 22, 17)", "rgb(207, 174, 133)"],
+            ["rgb(110, 157, 201)", "rgb(4, 23, 39)"],
+            ["rgb(209, 155, 234)", "rgb(45, 14, 60)"],
+            ["rgb(255, 112, 155)", "rgb(102, 16, 42)"]
         ];
 
         const currentStyle = window.getComputedStyle(baseDiv).backgroundColor;
